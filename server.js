@@ -27,9 +27,9 @@ app.use('/api/auth',require('./Routes/api/auth'))
 
 
 
-app.get('/',(req,res)=>{
-    res.send('api runnning')
-})
+// app.get('/',(req,res)=>{
+//     res.send('api runnning')
+// })
 
 //serve static assests in production
 
