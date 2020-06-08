@@ -9,7 +9,7 @@ export const loadUser =()=>async dispatch=>{
             setAuthToken(localStorage.token)
         } 
         try {
-            const res = await axios.get('https://arcane-bayou-92357.herokuapp.com/api/auth');
+            const res = await axios.get('https://whispering-castle-22419.herokuapp.com/api/auth');
             console.log("res")
             console.log(res)
             
@@ -40,7 +40,7 @@ export const Register =({name,email,password})=>async dispatch=>{
      const body = JSON.stringify({name,email,password});
      console.log(body)
      try {
-         const res = await axios.post('https://arcane-bayou-92357.herokuapp.com/api/users/register',body,config)
+         const res = await axios.post('https://whispering-castle-22419.herokuapp.com/api/users/register',body,config)
          console.log("response")
          console.log(res)
          dispatch({
@@ -78,7 +78,7 @@ export const login = (email,password)=> async dispatch=>{
     console.log("body")
     console.log(body)
     try {
-        const res = await axios.post('https://arcane-bayou-92357.herokuapp.com/api/auth/login',body,config)
+        const res = await axios.post('https://whispering-castle-22419.herokuapp.com/api/auth/login',body,config)
         console.log("response")
         console.log(res)
         dispatch({
