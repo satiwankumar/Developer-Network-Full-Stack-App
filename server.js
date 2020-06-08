@@ -33,6 +33,7 @@ app.use('/api/auth',require('./Routes/api/auth'))
 
 //serve static assests in production
 
+const PORT =  process.env.PORT || 5000
 if(process.env.NODE_ENV === 'production'){
     //set static folder 
     app.use(express.static('client/build'));
@@ -46,6 +47,5 @@ if(process.env.NODE_ENV === 'production'){
 
 
 
-const PORT =  process.env.PORT || 5000
 
 app.listen(PORT,()=> console.log(`server started on port ${PORT}`))
