@@ -60,7 +60,7 @@ router.post(
       facebook,
       twitter,
       instagram,
-      linkdin,
+      linkdin
     } = req.body;
 
     //build profile objects
@@ -222,9 +222,9 @@ router.put(
       profile.experience.unshift(newExp);
       await profile.save();
       res.json(profile);
-    } catch (error) {
-      console.error(error.message);
-      res.status(500).send('server Error');
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
     }
   }
 );

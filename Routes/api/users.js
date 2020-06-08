@@ -6,6 +6,9 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 const User = require('../../Models/User');
+const cors = require('cors')
+
+router.use(cors()); 
 
 //@route Get api/users
 //@desc get all users
@@ -45,8 +48,10 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    
 
     try {
+      // console.log("body")
       //   console.log(req.body);
       const { name, email, password } = req.body;
       //see if user exists

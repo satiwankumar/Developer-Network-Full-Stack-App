@@ -1,8 +1,12 @@
 import React,{useState} from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
+import PropTypes from'prop-types'
 
-const Login = () => {
+import {login} from '../../actions/auth'
+
+const Login = ({login,isAuthenticated}) => {
 
     const [formData,setFormData] = useState({
       
@@ -19,33 +23,20 @@ const Login = () => {
     }
     const onSubmit= async(e)=>{
         e.preventDefault()
-       
-        //     const newUser = {
-        //         name,
-        //         email,
-        //         password,
-            
-        //     }
-        //     try {
-                
-        //         const config={
-        //             headers:{
-        //                 'Content-Type':'application/json'
-        //             }
-        //         }
-        //         const body = JSON.stringify(newUser)
-        //         const res = await axios.post('/api/users/register',body,config)
-        //         console.log(res.data)
+        console.log("email,password component")
+        console.log(email,password)
+        login(email,password)
+     
 
-        //     } catch (error) {
-        //         console.error(error.response.data)
-                
-        //     }
-        
+    }
+
+    //Redirect if logged int
+    if(isAuthenticated){
+      return <Redirect to="/dashboard" />
     }
     return (
         <div>
-        <h1 className="large text-primary">Sign Up</h1>
+        <h1 className="large text-primary">Log in</h1>
         <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
         <form className="form" onSubmit={e=>onSubmit(e)}>
          
@@ -78,4 +69,14 @@ const Login = () => {
     )
 }
 
-export default Login
+
+Login.propTypes={
+ login:PropTypes.func.isRequired,
+ isAuthenticated:PropTypes.bool 
+}
+const mapStateToProps = state =>({
+isAuthenticated : state.auth.isAuthenticated
+})
+
+
+export default connect(mapStateToProps,{login})(Login)

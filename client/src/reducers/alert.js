@@ -1,8 +1,9 @@
 import {SET_ALERT ,REMOVE_ALERT } from '../actions/types'
 
 const initalSTATE=[]
-const {type,payload} = action
 export default function(state=initalSTATE,action){
+const {type,payload} = action
+
     switch(type){
         case SET_ALERT:
             return [...state,payload]
@@ -11,4 +12,4 @@ export default function(state=initalSTATE,action){
         default:
             return state
     }
-}
+} 
