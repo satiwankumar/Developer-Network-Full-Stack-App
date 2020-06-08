@@ -1,0 +1,6 @@
+{
+    "MongoURI" : "mongodb+srv://satiwan:satiwan125127@devconnector-ykcsk.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtToken":"jwtSecret",
+    "githubClientId":"3fdf1cd6b585e015eb83",
+    "githubSecret":"fcefb9bf342082b43e35a9dba1511ee6d599a3d1"
+}
