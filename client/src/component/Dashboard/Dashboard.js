@@ -31,12 +31,12 @@ const Dashboard = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) =>
         <Education education={profile.education}/>
        
         <div className="my-2">
-        <button>
+       
         <button className="btn btn-danger" onClick={()=>{deleteAccount()}}>
             <i className="fas fa-user-minus" >Delete My Account</i>
 
         </button>
-        </button>
+
         
         </div>
 
